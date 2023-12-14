@@ -1,7 +1,15 @@
 package pierpaolo.entities;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+@Entity
 public class Concerto extends Evento{
+    @Enumerated(EnumType.STRING)
     private Generetype genereTipo;
+    @Enumerated(EnumType.STRING)
     private InStreamingType inStreamingTipo;
 
     public Concerto() {

@@ -20,6 +20,7 @@ public class Application {
         PartecipazioneDAO pd = new PartecipazioneDAO(em);
         PersonaDAO ps = new PersonaDAO(em);
 
+/*
 //        Evento battesimo = new Evento("Pippo", LocalDate.of(2023, 5,25),"Battesimo", EventoType.PUBBLICO,200);
 //        Evento cresima = new Evento("Aldo",LocalDate.of(2023,12,31),"Ci credo", EventoType.PRIVATO,3);
 //--------------------------------------------------------------------------------------------------------------------SAVE
@@ -53,8 +54,11 @@ public class Application {
         Persona aldoDB = ps.findById(25);
         Partecipazione part = new Partecipazione(aldoDB,battesimoFromDb);
 //        pd.save(part);
-
-
+*/
+    PartitaDiCalcio derbyTorino = new PartitaDiCalcio("Juve","Torino","Juve",3,1);
+//    ed.save(derbyTorino);
+    Concerto pooh = new Concerto(Generetype.POP,InStreamingType.FALSE);
+//    ed.save(pooh);
 
         // ---------------A fine programma è sempre bene ricordarsi di chiudere entitymanager e entitymanagerfactory
         em.close();

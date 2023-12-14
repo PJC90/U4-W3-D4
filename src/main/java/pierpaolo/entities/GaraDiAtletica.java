@@ -1,15 +1,20 @@
 package pierpaolo.entities;
 
+import javax.persistence.*;
 import java.util.List;
-
+@Entity
+@DiscriminatorValue("Gara Di Atletica")
 public class GaraDiAtletica extends Evento{
+    @ManyToMany
+    @JoinTable(name = "atletica_persone", joinColumns = @JoinColumn(name = "gara_id"),inverseJoinColumns = @JoinColumn(name = "persona_id"))
     private List<Persona> setAtleti;
+    @ManyToOne
     private Persona vincitore;
 
     public GaraDiAtletica() {
     }
-    public GaraDiAtletica(List<Persona> setAtleti, Persona vincitore) {
-        this.setAtleti = setAtleti;
+    public GaraDiAtletica( Persona vincitore) {
+
         this.vincitore = vincitore;
     }
 
@@ -17,9 +22,6 @@ public class GaraDiAtletica extends Evento{
         return setAtleti;
     }
 
-    public void setSetAtleti(List<Persona> setAtleti) {
-        this.setAtleti = setAtleti;
-    }
 
     public Persona getVincitore() {
         return vincitore;

@@ -1,7 +1,10 @@
 package pierpaolo.entities;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import java.time.LocalDate;
-
+@Entity
+@DiscriminatorValue("Partita di Calcio")
 public class PartitaDiCalcio extends Evento{
     private String squadraDiCasa;
     private String squadraOspite;
