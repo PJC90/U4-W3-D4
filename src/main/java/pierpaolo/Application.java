@@ -59,6 +59,11 @@ public class Application {
 //    ed.save(derbyTorino);
     Concerto pooh = new Concerto(Generetype.POP,InStreamingType.FALSE);
 //    ed.save(pooh);
+    Persona alex = new Persona("Alex", "Schwarz","a.s@libero.it",LocalDate.of(1989,2,21),Sessotype.M);
+//    ps.save(alex);
+    GaraDiAtletica alexV = new GaraDiAtletica(alex);
+    ed.save(alexV);
+
 
         // ---------------A fine programma è sempre bene ricordarsi di chiudere entitymanager e entitymanagerfactory
         em.close();
