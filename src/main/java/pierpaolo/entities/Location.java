@@ -17,13 +17,20 @@ public class Location {
     @JoinColumn(name = "evento_id", nullable = false, unique = true)
     private Evento evento;
 
+    public Evento getEvento() {
+        return evento;
+    }
+
+    public void setEvento(Evento evento) {
+        this.evento = evento;
+    }
+
     public Location() {
 
     }
-    public Location(String nome, String città, Evento evento) {
+    public Location(String nome, String città) {
         this.nome = nome;
         this.città = città;
-        this.evento = evento;
     }
 
     public long getId() {

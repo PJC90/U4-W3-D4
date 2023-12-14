@@ -1,5 +1,6 @@
 package pierpaolo;
 
+import com.github.javafaker.Faker;
 import pierpaolo.dao.EventoDAO;
 import pierpaolo.dao.LocationDAO;
 import pierpaolo.dao.PartecipazioneDAO;
@@ -10,59 +11,24 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.time.LocalDate;
+import java.util.Locale;
 
 public class Application {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("u4w3d2jpa");
     public static void main(String[] args) {
         EntityManager em = emf.createEntityManager();
-        EventoDAO ed = new EventoDAO(em);
-        LocationDAO ld = new LocationDAO(em);
-        PartecipazioneDAO pd = new PartecipazioneDAO(em);
-        PersonaDAO ps = new PersonaDAO(em);
+        EventoDAO eventDao = new EventoDAO(em);
+        LocationDAO locationDao = new LocationDAO(em);
+        PartecipazioneDAO partecipazDao = new PartecipazioneDAO(em);
+        PersonaDAO personaDao = new PersonaDAO(em);
 
-/*
-//        Evento battesimo = new Evento("Pippo", LocalDate.of(2023, 5,25),"Battesimo", EventoType.PUBBLICO,200);
-//        Evento cresima = new Evento("Aldo",LocalDate.of(2023,12,31),"Ci credo", EventoType.PRIVATO,3);
-//--------------------------------------------------------------------------------------------------------------------SAVE
-//        ed.save(battesimo);
-//        ed.save(cresima);
-// ----------------------------------------------------------------------------------------------FIND BY ID
-        long id = 3;
-        Evento battesimoFindById = ed.findById(id);
-        if(battesimoFindById != null){
-            System.out.println(battesimoFindById);
-        } else {
-            System.out.println("Evento di ID " + id + " non trovato");
-        }
-// ---------------------------------------------------------------------------------DELETE
-        ed.findByIdAndDelete(14);
+        Faker fk = new Faker(Locale.ITALY);
 
-        //---------------------------------------------------------------------    1 to 1
-//        Evento vm = new Evento("Svelti",LocalDate.of(2023,2,3),"Esaltiamoci",EventoType.PRIVATO,200);
-//        ed.save(vm);
-
-        Evento battesimoFromDb = ed.findById(18);
-        System.out.println(battesimoFromDb);
-        Location villaMaiella = new Location("Lions", "Guardiagrele", battesimoFromDb);
-//        ld.save(villaMaiella);
-        Evento cresimaID = ed.findById(12);
-        Location vignale = new Location("Il Vignale", "Rapino", cresimaID);
-//        ld.save(vignale);
-        //---------------------------------------------------------------------    1 to Many
-        Persona aldo = new Persona("Aldo", "Baglio","aldobaglio@gmail.com", LocalDate.of(1961,6,3),Sessotype.M);
-//        ps.save(aldo);
-        Persona aldoDB = ps.findById(25);
-        Partecipazione part = new Partecipazione(aldoDB,battesimoFromDb);
-//        pd.save(part);
-*/
-    PartitaDiCalcio derbyTorino = new PartitaDiCalcio("Juve","Torino","Juve",3,1);
-//    ed.save(derbyTorino);
-    Concerto pooh = new Concerto(Generetype.POP,InStreamingType.FALSE);
-//    ed.save(pooh);
-    Persona alex = new Persona("Alex", "Schwarz","a.s@libero.it",LocalDate.of(1989,2,21),Sessotype.M);
-//    ps.save(alex);
-    GaraDiAtletica alexV = new GaraDiAtletica(alex);
-    ed.save(alexV);
+        Evento ev1 = new Evento("Corso",LocalDate.now(),"Java",EventoType.PRIVATO,20);
+//        eventDao.save(ev1);
+        Location loc1 = new Location("ciao", "we");
+        loc1.setEvento(ev1);
+        locationDao.save(loc1);
 
 
         // ---------------A fine programma è sempre bene ricordarsi di chiudere entitymanager e entitymanagerfactory

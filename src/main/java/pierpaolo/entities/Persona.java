@@ -3,6 +3,7 @@ package pierpaolo.entities;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "persone")
@@ -17,8 +18,8 @@ public class Persona {
     private Sessotype tipoSesso;
     @OneToMany(mappedBy = "persona") // nella classe Persona  --->private Persona persona;
     private List<Partecipazione> listaPartecipazioni;
-    @ManyToMany(mappedBy = "setAtleti") // Nella classe GaraDiAtletica
-    private List<GaraDiAtletica> gareDiAtletica;
+    @ManyToMany(mappedBy = "atleti") // Nella classe GaraDiAtletica
+    private Set<GaraDiAtletica> gareDiAtletica;
 
     public Persona() {}
     public Persona(String nome, String cognome, String email, LocalDate dataDiNascita, Sessotype tipoSesso) {
@@ -30,11 +31,11 @@ public class Persona {
 //        this.listaPartecipazioni = listaPartecipazioni; NON HA SENSO creare una listaPartecipazioni in Persona!!!
     }
 
-    public List<GaraDiAtletica> getGareDiAtletica() {
+    public Set<GaraDiAtletica> getGareDiAtletica() {
         return gareDiAtletica;
     }
 
-    public void setGareDiAtletica(List<GaraDiAtletica> gareDiAtletica) {
+    public void setGareDiAtletica(Set<GaraDiAtletica> gareDiAtletica) {
         this.gareDiAtletica = gareDiAtletica;
     }
 

@@ -8,8 +8,6 @@ import java.time.LocalDate;
 public class PartitaDiCalcio extends Evento{
     private String squadraDiCasa;
     private String squadraOspite;
-//    @Nullable
-
     private String squadraVincente;//null se pareggio
     private int numeroGolSquadraDiCasa;
     private int numeroGolSquadraOspite;
@@ -18,10 +16,9 @@ public class PartitaDiCalcio extends Evento{
 
     }
 
-    public PartitaDiCalcio( String squadraDiCasa, String squadraOspite, String squadraVincente, int numeroGolSquadraDiCasa, int numeroGolSquadraOspite) {
-        this.squadraDiCasa = squadraDiCasa;
-        this.squadraOspite = squadraOspite;
-        this.squadraVincente = squadraVincente;
+    public PartitaDiCalcio(String titolo, LocalDate dataEvento, String descrizione, EventoType tipoEvento, int numeroMassimoPartecipanti,
+                           int numeroGolSquadraDiCasa, int numeroGolSquadraOspite) {
+        super(titolo, dataEvento, descrizione, tipoEvento, numeroMassimoPartecipanti);
         this.numeroGolSquadraDiCasa = numeroGolSquadraDiCasa;
         this.numeroGolSquadraOspite = numeroGolSquadraOspite;
     }

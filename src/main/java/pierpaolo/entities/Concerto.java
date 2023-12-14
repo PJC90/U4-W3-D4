@@ -4,6 +4,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import java.time.LocalDate;
 
 @Entity
 public class Concerto extends Evento{
@@ -14,7 +15,10 @@ public class Concerto extends Evento{
 
     public Concerto() {
     }
-    public Concerto(Generetype genereTipo, InStreamingType inStreamingTipo) {
+
+    public Concerto(String titolo, LocalDate dataEvento, String descrizione, EventoType tipoEvento, int numeroMassimoPartecipanti,
+                    Generetype genereTipo, InStreamingType inStreamingTipo) {
+        super(titolo, dataEvento, descrizione, tipoEvento, numeroMassimoPartecipanti);
         this.genereTipo = genereTipo;
         this.inStreamingTipo = inStreamingTipo;
     }

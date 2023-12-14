@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 @Table(name = "evento")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Evento {
+public class Evento {
     @Id
     @GeneratedValue
     private long id;
@@ -36,6 +36,7 @@ public abstract class Evento {
         this.descrizione = descrizione;
         this.tipoEvento = tipoEvento;
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+
     }
 
     public String getTitolo() {
