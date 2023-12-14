@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "evento")
-public class Evento {
+public abstract class Evento {
     @Id
     @GeneratedValue
     private long id;

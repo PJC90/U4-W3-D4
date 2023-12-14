@@ -20,8 +20,8 @@ public class Application {
         PartecipazioneDAO pd = new PartecipazioneDAO(em);
         PersonaDAO ps = new PersonaDAO(em);
 
-        Evento battesimo = new Evento("Pippo", LocalDate.of(2023, 5,25),"Battesimo", EventoType.PUBBLICO,200);
-        Evento cresima = new Evento("Aldo",LocalDate.of(2023,12,31),"Ci credo", EventoType.PRIVATO,3);
+//        Evento battesimo = new Evento("Pippo", LocalDate.of(2023, 5,25),"Battesimo", EventoType.PUBBLICO,200);
+//        Evento cresima = new Evento("Aldo",LocalDate.of(2023,12,31),"Ci credo", EventoType.PRIVATO,3);
 //--------------------------------------------------------------------------------------------------------------------SAVE
 //        ed.save(battesimo);
 //        ed.save(cresima);
